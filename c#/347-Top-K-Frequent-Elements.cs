@@ -4,7 +4,7 @@
 // Iterate from 0 to k - 1, adding elements from the priority queue to the array
 // Return the array
 
-// O(N) Time & O(N + k) Space where N is the number of elements in nums
+// O(Nlogk) Time & O(N + k) Space where N is the number of elements in nums
 
 
 public class Solution {
