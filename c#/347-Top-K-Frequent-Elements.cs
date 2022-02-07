@@ -1,3 +1,45 @@
+#region Buckets
+
+// Create an array of lists with size of nums
+// Each index in the array will represent a frequency, and each list will have all elems with that frequency
+// Use a hash map to get the frequencies, add the elements to their frequency buckets
+// Iterate backwards through the buckets and add them to the return array until we have k elems
+
+// O(N) Time and O(N) Space
+
+public class Solution {
+    public int[] TopKFrequent(int[] nums, int k) {
+        var dict = new Dictionary<int, int>();
+
+        foreach (int num in nums)
+            if (!dict.TryAdd(num, 1)) dict[num]++;
+
+        // must be 1 greater than size of array since if all elems are the same,
+        // count would be N but last index in nums is N-1
+        var buckets = new List<int>[nums.Length + 1];
+
+        for (int i = 0; i < buckets.Length; i++) buckets[i] = new List<int>();
+
+        foreach (var pair in dict) buckets[pair.Value].Add(pair.Key);
+
+        var retVal = new int[k];
+        int addedCounter = 0;
+        for (int j = buckets.Length - 1; j >= 0; j--)
+        {
+            foreach (int num in buckets[j])
+            {
+                if (addedCounter >= k)
+                    break;
+                retVal[addedCounter++] = num;
+            }
+        }
+
+        return retVal;
+    }
+}
+
+#endregion Buckets
+
 #region QuickSelect
 // This solution uses the quicksort algorithm
 // After creating an ascending sorted array, the pivot will be such that all elements on the left
