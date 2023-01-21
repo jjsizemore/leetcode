@@ -78,7 +78,7 @@ class MyQueue:
     # Time O(1)
     # Space O(1)
     def empty(self) -> bool:
-        return len(self.main) == 0
+        return not self.main
 
 
 # Your MyQueue object will be instantiated and called as such:
