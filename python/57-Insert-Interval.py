@@ -1,6 +1,32 @@
+from typing import List
+
+# region Collect Left & Right
+# Space O(n)
+# Time O(n)
+
+
+class Solution:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+        curStart, curEnd = newInterval[0], newInterval[1]
+
+        left, right = [], []
+
+        for i in intervals:
+            if i[1] < curStart:
+                left.append(i)
+            elif i[0] > curEnd:
+                right.append(i)
+            else:
+                curStart = min(curStart, i[0])
+                curEnd = max(curEnd, i[1])
+        return left + [[curStart, curEnd]] + right
+# endregion
+
 # region  Hacky Linear Search -- Can be improved
 # Space O(N)
 # Time O(N)
+
+
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         if not intervals:
