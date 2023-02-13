@@ -49,3 +49,58 @@ class Solution:
 
 
 # endregion
+
+# region Optimized Sliding Window
+# Time O(2 * |sFiltered| + |S| + |T|) -- worst case we visit every pair in sFiltered twice
+#   This solution is faster when |sFiltered| <<< |S|
+# Space O(|S| + |T|)
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        if len(t) > len(s):
+            return ""
+
+        tCounts = Counter(t)
+
+        tUnique = len(tCounts)
+
+        # Number of chars that are at desired frequency in the current substring
+        formed = 0
+
+        left, right = 0, 0
+
+        # ans tuple (window length, left, right)
+        ans = math.inf, 0, 0
+
+        sFiltered = []
+        for idx, char in enumerate(s):
+            if char in t:
+                sFiltered.append((idx, char))
+
+        wCounts = {}
+
+        while right < len(sFiltered):
+
+            char = sFiltered[right][1]
+            wCounts[char] = wCounts.get(char, 0) + 1
+
+            if char in tCounts and wCounts[char] == tCounts[char]:
+                formed += 1
+
+            while left <= right and formed == tUnique:
+                curStart = sFiltered[left][0]
+                curEnd = sFiltered[right][0]
+                if curEnd - curStart + 1 < ans[0]:
+                    ans = curEnd - curStart + 1, curStart, curEnd
+
+                char = sFiltered[left][1]
+                wCounts[char] -= 1
+                if char in tCounts and wCounts[char] < tCounts[char]:
+                    formed -= 1
+                left += 1
+
+            right += 1
+
+        return "" if ans[0] == math.inf else s[ans[1] : ans[2] + 1]
+
+
+# endregion
