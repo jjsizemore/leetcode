@@ -1,7 +1,6 @@
 from collections import defaultdict
 
 # region Dict and Reverse Linear Search
-# Time O
 class TimeMap:
     def __init__(self):
         self.timeMap = defaultdict(lambda: {})
