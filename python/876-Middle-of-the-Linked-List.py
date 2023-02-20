@@ -16,10 +16,7 @@ class Solution:
         - Time O(n)
         - Space O(1)
         """
-        if not head:
-            return head
-
-        slow, fast = head, head
+        slow = fast = head
 
         while fast and fast.next:
             slow = slow.next
