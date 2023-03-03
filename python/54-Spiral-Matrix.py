@@ -13,8 +13,6 @@ class Solution:
 
         spiralOrder = []
 
-        dX = dY = 1
-
         while len(spiralOrder) < total:
 
             for curX in range(left, right + 1):
