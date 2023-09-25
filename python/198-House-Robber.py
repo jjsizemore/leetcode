@@ -1,5 +1,26 @@
 from typing import List
 
+# region DP (Space Optimized)
+
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+
+        maxRobbed = 0
+
+        twoUp, oneUp = 0, nums[len(nums) - 1]
+
+        for i in range(len(nums) - 2, -1, -1):
+            maxRobbed = max(oneUp, twoUp + nums[i])
+            twoUp = oneUp
+            oneUp = maxRobbed
+        return oneUp
+
+
+# endregion
+
 # region Dynamic Programming
 
 
