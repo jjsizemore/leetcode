@@ -36,14 +36,13 @@ class Logger:
 
 class Logger:
     def __init__(self):
-        self.msgs = collections.defaultdict(set)
+        self.msgs = {}
 
     def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
-        for ts in range(timestamp, timestamp - 10, -1):
-            if message in self.msgs[ts]:
-                return False
-        self.msgs[timestamp].add(message)
-        return True
+        if message not in self.msgs or self.msgs[message] <= timestamp - 10:
+            self.msgs[message] = timestamp
+            return True
+        return False
 
 
 # endregion HashMap
