@@ -9,6 +9,13 @@ class TreeNode:
         self.right = right
 
 
+# Testing that the coder knows to pass info:
+#   downward via arguments
+#   upward via return values
+# Time: O(N) where N is number of nodes
+# Space: O(H + N) where N is height of tree
+
+
 class Solution:
     def delNodes(
         self, root: Optional[TreeNode], to_delete: List[int]
@@ -21,8 +28,8 @@ class Solution:
                 return None
 
             if root.val in to_delete:
-                root.left = traverse(root.left, False)
-                root.right = traverse(root.right, False)
+                traverse(root.left, False)
+                traverse(root.right, False)
                 return None
             else:
                 if not parent_exist:
