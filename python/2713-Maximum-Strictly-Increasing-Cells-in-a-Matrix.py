@@ -3,6 +3,38 @@ from typing import List
 from sortedcontainers import SortedSet
 
 
+# region More Efficient Soln
+class Solution:
+    def maxIncreasingCells(self, mat: List[List[int]]) -> int:
+        R, C = len(mat), len(mat[0])
+
+        vmap = collections.defaultdict(list)
+
+        for i in range(R):
+            for j in range(C):
+                vmap[mat[i][j]].append((i, j))
+
+        # Max steps that one can go from a given cell
+        dp = [[0] * C for _ in range(R)]
+
+        # Max steps in row and col
+        row_res, col_res = [0] * R, [0] * C
+
+        # Iterate through the unique values in the matrix, and for each occurrence of the value, check the row_res & col_res arrays,
+        for val in sorted(vmap.keys()):
+            for i, j in vmap[val]:
+                dp[i][j] = max(row_res[i], col_res[j]) + 1
+            for i, j in vmap[val]:
+                row_res[i] = max(dp[i][j], row_res[i])
+                col_res[j] = max(dp[i][j], col_res[j])
+
+        return max(max(row_res), max(col_res))
+
+
+# endregion
+
+
+# region Less Efficient Soln
 class Solution:
     def maxIncreasingCells(self, mat: List[List[int]]) -> int:
         m, n = len(mat), len(mat[0])
@@ -33,3 +65,6 @@ class Solution:
                 c[curY] = max(c[curY], temp[curX][curY])
 
         return max(max(r), max(c))
+
+
+# endregion
