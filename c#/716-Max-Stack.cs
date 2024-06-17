@@ -5,36 +5,42 @@
 // O(N) Time for PopMax(), O(1) for all others
 // O(N) Space where N is total elems added
 
-public class MaxStack {
-
+public class MaxStack
+{
     private Stack<int> _stack;
     private Stack<int> _maxStack;
 
-    public MaxStack() {
+    public MaxStack()
+    {
         _stack = new Stack<int>();
         _maxStack = new Stack<int>();
     }
 
-    public void Push(int x) {
+    public void Push(int x)
+    {
         _stack.Push(x);
         int max = _maxStack.Count > 0 ? _maxStack.Peek() : int.MinValue;
         _maxStack.Push(Math.Max(x, max));
     }
 
-    public int Pop() {
+    public int Pop()
+    {
         _maxStack.Pop();
         return _stack.Pop();
     }
 
-    public int Top() {
+    public int Top()
+    {
         return _stack.Peek();
     }
 
-    public int PeekMax() {
+    public int PeekMax()
+    {
         return _maxStack.Peek();
     }
 
-    public int PopMax() {
+    public int PopMax()
+    {
         // Create a buffer that will hold elements that are on top of the max element in the regular stack
         // Pop elems from the regular stack and the max stack until we see the top max elem in the reg stack
         // Add elems from the buffer to the regular stack again and add the max elem in the max stack to the max stack for each elem in the buffer

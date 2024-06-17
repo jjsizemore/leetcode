@@ -5,20 +5,21 @@
 // O(N) Time where N is number of elements in the list
 // O(N) Space. Callstack max is O(D) where D is max depth
 
-public class Solution {
+public class Solution
+{
     private Queue<List<int>> _valuesAndDepths = new Queue<List<int>>();
 
     private int _maxDepth = 0;
 
-    private void helper(IList<NestedInteger> nestedList, int depth) {
-
+    private void helper(IList<NestedInteger> nestedList, int depth)
+    {
         _maxDepth = Math.Max(depth, _maxDepth);
 
         foreach (var nestedInt in nestedList)
         {
             if (nestedInt.IsInteger())
             {
-                _valuesAndDepths.Enqueue(new List<int>{ nestedInt.GetInteger(), depth });
+                _valuesAndDepths.Enqueue(new List<int> { nestedInt.GetInteger(), depth });
             }
             else
             {
@@ -27,7 +28,8 @@ public class Solution {
         }
     }
 
-    public int DepthSumInverse(IList<NestedInteger> nestedList) {
+    public int DepthSumInverse(IList<NestedInteger> nestedList)
+    {
         helper(nestedList, 1);
 
         int weightSum = 0;

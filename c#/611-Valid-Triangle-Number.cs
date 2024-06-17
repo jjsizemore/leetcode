@@ -7,10 +7,12 @@
 // O(N^2logN) Time where N is the number of elements. This is because we're performing binary search for N^2 pairs
 // O(1) Space, unless you count space used to sort which is O(logN)
 
-public class Solution {
+public class Solution
+{
     private int[] _nums;
 
-    public int TriangleNumber(int[] nums) {
+    public int TriangleNumber(int[] nums)
+    {
         int count = 0;
 
         Array.Sort(nums);

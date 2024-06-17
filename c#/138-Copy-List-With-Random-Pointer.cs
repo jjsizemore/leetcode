@@ -19,9 +19,12 @@ public class Node {
 // Iterate through combined list and use old nodes' .next.random values to set the new nodes' random values to the corresponding new random node
 // Separate the new Nodes and the old nodes into their own linkedlists
 
-public class Solution {
-    public Node CopyRandomList(Node head) {
-        if (head == null) return head;
+public class Solution
+{
+    public Node CopyRandomList(Node head)
+    {
+        if (head == null)
+            return head;
 
         var cur = head;
 

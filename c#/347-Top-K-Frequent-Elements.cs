@@ -7,20 +7,25 @@
 
 // O(N) Time and O(N) Space
 
-public class Solution {
-    public int[] TopKFrequent(int[] nums, int k) {
+public class Solution
+{
+    public int[] TopKFrequent(int[] nums, int k)
+    {
         var dict = new Dictionary<int, int>();
 
         foreach (int num in nums)
-            if (!dict.TryAdd(num, 1)) dict[num]++;
+            if (!dict.TryAdd(num, 1))
+                dict[num]++;
 
         // must be 1 greater than size of array since if all elems are the same,
         // count would be N but last index in nums is N-1
         var buckets = new List<int>[nums.Length + 1];
 
-        for (int i = 0; i < buckets.Length; i++) buckets[i] = new List<int>();
+        for (int i = 0; i < buckets.Length; i++)
+            buckets[i] = new List<int>();
 
-        foreach (var pair in dict) buckets[pair.Value].Add(pair.Key);
+        foreach (var pair in dict)
+            buckets[pair.Value].Add(pair.Key);
 
         var retVal = new int[k];
         int addedCounter = 0;
@@ -54,18 +59,20 @@ public class Solution {
 
 // O(N) space for the dict and the unique array
 
-public class Solution {
-
+public class Solution
+{
     private Dictionary<int, int> _dict;
     private int[] _unique;
 
-    public int[] TopKFrequent(int[] nums, int k) {
+    public int[] TopKFrequent(int[] nums, int k)
+    {
         _dict = new Dictionary<int, int>();
 
         // Creating map of all values to their frequencies
         foreach (int num in nums)
         {
-            if (!_dict.TryAdd(num, 1)) _dict[num]++;
+            if (!_dict.TryAdd(num, 1))
+                _dict[num]++;
         }
 
         // Create an array of unique values based on the keys in the dict
@@ -92,7 +99,8 @@ public class Solution {
     public void quickSelect(int left, int right, int kSmallest)
     {
         // base case -- list only contains one element
-        if (left == right) return;
+        if (left == right)
+            return;
 
         var rand = new Random();
 
@@ -161,8 +169,10 @@ public class Solution {
 // O(Nlogk) Time & O(N + k) Space where N is the number of elements in nums
 
 
-public class Solution {
-    public int[] TopKFrequent(int[] nums, int k) {
+public class Solution
+{
+    public int[] TopKFrequent(int[] nums, int k)
+    {
         var dict = new Dictionary<int, int>();
 
         // O(N) time
@@ -179,7 +189,10 @@ public class Solution {
         }
 
         // Creates heap of size k with custom comparer that results in non decreasing order
-        var heap = new PriorityQueue<int, int>(k, Comparer<int>.Create((val1, val2) => val2 - val1));
+        var heap = new PriorityQueue<int, int>(
+            k,
+            Comparer<int>.Create((val1, val2) => val2 - val1)
+        );
 
         // O(Nlogk) time -- enqueueing N elements at logk time each
         foreach (var pair in dict)

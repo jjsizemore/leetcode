@@ -7,8 +7,10 @@
 
 // O(N) Space, O(N) Time
 
-public class Solution {
-    public int UniqueLetterString(string s) {
+public class Solution
+{
+    public int UniqueLetterString(string s)
+    {
         var indices = new List<int>[26];
 
         for (int i = 0; i < 26; i++)

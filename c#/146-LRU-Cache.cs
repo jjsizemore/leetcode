@@ -1,17 +1,18 @@
 // Create a class called double linked node that has references to next and previous nodes
 // Add pseudo head and tail values to the linkedList to make it easier to add and remove nodes
 // Add DoubleLinkedNode helper methods such as:
-    // addNode (always adds to front)
-    // removeNode (removes a specific node object from the list)
-    // popTail (removes last node and returns the node object)
-    // moveToFront (calls removeNode() on the node object and then addNode() ot add node back to front)
+// addNode (always adds to front)
+// removeNode (removes a specific node object from the list)
+// popTail (removes last node and returns the node object)
+// moveToFront (calls removeNode() on the node object and then addNode() ot add node back to front)
 
 
 // DOUBLE LINKED LIST + HASH MAP Solution
 // O(1) Time, O(capacity) Space
-public class LRUCache {
-
-    public class DoubleLinkedNode {
+public class LRUCache
+{
+    public class DoubleLinkedNode
+    {
         public int key;
         public int value;
         public DoubleLinkedNode prev;
@@ -52,7 +53,8 @@ public class LRUCache {
     private int _count;
     private Dictionary<int, DoubleLinkedNode> dict;
 
-    public LRUCache(int capacity) {
+    public LRUCache(int capacity)
+    {
         _head = new DoubleLinkedNode();
         _tail = new DoubleLinkedNode();
         _head.next = _tail;
@@ -64,7 +66,8 @@ public class LRUCache {
         dict = new Dictionary<int, DoubleLinkedNode>();
     }
 
-    public int Get(int key) {
+    public int Get(int key)
+    {
         if (dict.ContainsKey(key))
         {
             var node = dict[key];
@@ -77,7 +80,8 @@ public class LRUCache {
         }
     }
 
-    public void Put(int key, int value) {
+    public void Put(int key, int value)
+    {
         if (!dict.ContainsKey(key))
         {
             var newNode = new DoubleLinkedNode();

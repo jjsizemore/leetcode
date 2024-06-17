@@ -6,11 +6,15 @@
 // TWO POINTER SOLUTION
 // O(N) Time, O(1) Space
 
-public class Solution {
-    public int Trap(int[] height) {
-        int left = 0, right = height.Length - 1;
+public class Solution
+{
+    public int Trap(int[] height)
+    {
+        int left = 0,
+            right = height.Length - 1;
 
-        int leftMax = height[left], rightMax = height[right];
+        int leftMax = height[left],
+            rightMax = height[right];
 
         int sum = 0;
 

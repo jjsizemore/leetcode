@@ -10,19 +10,21 @@
 // GetRandom is always O(1). Insert and Remove are O(1) on average, but O(N) if they trigger a resize
 // O(N) Space complexity for storing N elems
 
-public class RandomizedSet {
-
+public class RandomizedSet
+{
     private List<int> _myList;
     private Dictionary<int, int> _myDict;
     private Random _myRand;
 
-    public RandomizedSet() {
+    public RandomizedSet()
+    {
         this._myList = new List<int>();
         this._myDict = new Dictionary<int, int>();
         this._myRand = new Random();
     }
 
-    public bool Insert(int val) {
+    public bool Insert(int val)
+    {
         // If we do not already have the value, add it and return true
         if (!_myDict.ContainsKey(val))
         {
@@ -33,7 +35,8 @@ public class RandomizedSet {
         return false;
     }
 
-    public bool Remove(int val) {
+    public bool Remove(int val)
+    {
         // If we have the value, remove it from both structures and return true
         if (_myDict.ContainsKey(val))
         {
@@ -52,7 +55,8 @@ public class RandomizedSet {
         return false;
     }
 
-    public int GetRandom() {
+    public int GetRandom()
+    {
         // Returns random int in range [0, _myList.Count)
         int idx = _myRand.Next(0, _myList.Count);
         return _myList[idx];
