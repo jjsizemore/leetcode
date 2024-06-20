@@ -1,6 +1,5 @@
 // Time O(n)
 // Space O(n)
-
 public class Solution
 {
     public bool IsValid(string s)
