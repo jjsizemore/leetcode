@@ -12,15 +12,14 @@ public class Solution
             if (list1.val <= list2.val)
             {
                 cur.next = list1;
-                cur = cur.next;
                 list1 = list1.next;
             }
             else
             {
                 cur.next = list2;
-                cur = cur.next;
                 list2 = list2.next;
             }
+            cur = cur.next;
         }
 
         if (list1 == null)

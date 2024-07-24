@@ -4,19 +4,16 @@ public class Solution
 {
     public int[] TwoSum(int[] nums, int target)
     {
-        var dict = new Dictionary<int, int>();
+        Dictionary<int, int> valToIdx = new();
 
         for (int i = 0; i < nums.Length; i++)
         {
-            int num = nums[i];
-            if (dict.ContainsKey(target - num))
+            int comp = target - nums[i];
+            if (valToIdx.ContainsKey(comp))
             {
-                return [i, dict[target - num]];
+                return new int[] { valToIdx[comp], i };
             }
-            else
-            {
-                dict[num] = i;
-            }
+            valToIdx[nums[i]] = i;
         }
         return null;
     }
