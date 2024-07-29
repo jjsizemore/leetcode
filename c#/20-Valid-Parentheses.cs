@@ -1,28 +1,62 @@
 // Time O(n)
 // Space O(n)
+#region More Self-Documenting
 public class Solution
 {
     public bool IsValid(string s)
     {
-        Dictionary<char, char> dict =
+        Stack<char> rights = new();
+        Dictionary<char, char> toRight =
             new()
             {
-                { '(', ')' },
                 { '{', '}' },
-                { '[', ']' }
+                { '[', ']' },
+                { '(', ')' }
             };
 
-        Stack<char> stack = new();
-
-        for (int i = 0; i < s.Length; i++)
+        foreach (char c in s)
         {
-            if (dict.ContainsKey(s[i]))
-                stack.Push(dict[s[i]]);
-            else if (stack.Count > 0 && stack.Peek() == s[i])
-                stack.Pop();
-            else
+            if (toRight.ContainsKey(c))
+            {
+                rights.Push(toRight[c]);
+            }
+            else if (rights.Count == 0 || rights.Pop() != c)
+            {
                 return false;
+            }
         }
-        return stack.Count == 0;
+
+        return rights.Count == 0;
+    }
+}
+
+#endregion
+
+public class Solution
+{
+    public bool IsValid(string s)
+    {
+        Stack<char> rights = new();
+        Dictionary<char, char> toRight =
+            new()
+            {
+                { '{', '}' },
+                { '[', ']' },
+                { '(', ')' }
+            };
+
+        foreach (char c in s)
+        {
+            if (toRight.ContainsKey(c))
+            {
+                rights.Push(toRight[c]);
+            }
+            else if (rights.Count == 0 || rights.Pop() != c)
+            {
+                return false;
+            }
+        }
+
+        return rights.Count == 0;
     }
 }
