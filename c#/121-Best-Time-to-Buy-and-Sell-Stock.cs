@@ -1,3 +1,24 @@
+#region Two Pointers
+// Time O(n)
+// Space O(1)
+public class Solution
+{
+    public int MaxProfit(int[] prices)
+    {
+        int least = prices[0],
+            profit = 0;
+
+        foreach (int price in prices)
+        {
+            least = Math.Min(least, price);
+            profit = Math.Max(profit, price - least);
+        }
+        return profit;
+    }
+}
+
+#endregion
+#region Iterate Backwards
 // Time 	O(n)
 // Space 	O(1)
 public class Solution
@@ -22,3 +43,4 @@ public class Solution
         return maxProfit;
     }
 }
+#endregion
