@@ -1,3 +1,6 @@
+#region Sliding Window
+// Time O(n)
+// Space O(n)
 public class Solution
 {
     public int LengthOfLongestSubstring(string s)
@@ -19,3 +22,4 @@ public class Solution
         return maxLen;
     }
 }
+#endregion
