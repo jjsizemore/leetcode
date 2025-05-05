@@ -118,7 +118,7 @@ public class Solution
         int row = 0;
         while (top <= bot)
         {
-            row = (bot - top / 2 + top);
+            row = (bot - top) / 2 + top;
 
             if (matrix[row][cols - 1] < target)
             {
