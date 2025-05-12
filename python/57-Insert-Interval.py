@@ -6,7 +6,9 @@ from typing import List
 
 
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    def insert(
+        self, intervals: List[List[int]], newInterval: List[int]
+    ) -> List[List[int]]:
         curStart, curEnd = newInterval[0], newInterval[1]
 
         left, right = [], []
@@ -20,6 +22,8 @@ class Solution:
                 curStart = min(curStart, i[0])
                 curEnd = max(curEnd, i[1])
         return left + [[curStart, curEnd]] + right
+
+
 # endregion
 
 # region  Hacky Linear Search -- Can be improved
@@ -28,7 +32,9 @@ class Solution:
 
 
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
+    def insert(
+        self, intervals: List[List[int]], newInterval: List[int]
+    ) -> List[List[int]]:
         if not intervals:
             return [newInterval]
 
@@ -43,7 +49,11 @@ class Solution:
                 retVal.append(interval)
                 continue
             # Cur interval start overlaps with old
-            if interval[0] <= curStart and curStart <= interval[1] or (curEnd >= interval[0] and curEnd <= interval[1]):
+            if (
+                interval[0] <= curStart
+                and curStart <= interval[1]
+                or (curEnd >= interval[0] and curEnd <= interval[1])
+            ):
                 curStart = min(interval[0], curStart)
                 curEnd = max(curEnd, interval[1])
             if interval[0] > curEnd:
@@ -52,4 +62,6 @@ class Solution:
                 return retVal
         retVal.append([curStart, curEnd])
         return retVal
+
+
 # endregion

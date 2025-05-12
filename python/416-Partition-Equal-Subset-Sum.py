@@ -1,5 +1,6 @@
 from typing import List
 
+
 # region DP (Optimized with 1D array)
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:

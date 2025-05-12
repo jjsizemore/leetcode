@@ -2,11 +2,7 @@ class Solution:
     # Space O(n)
     # Time O(n)
     def isValid(self, s: str) -> bool:
-        closers = {
-            '(': ')',
-            '[': ']',
-            '{': '}'
-        }
+        closers = {"(": ")", "[": "]", "{": "}"}
 
         stack = []
 

@@ -1,6 +1,7 @@
 from collections import deque
 from typing import List
 
+
 # region BFS
 # Space O(r*c)
 # Time O(r*c)
@@ -27,7 +28,7 @@ class Solution:
         while q and freshOranges > 0:
             # iterate through all newly rotten oranges
             # each q cycle is 1 minute
-            for i in range(len(q)):
+            for _i in range(len(q)):
                 x, y = q.popleft()
 
                 for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:

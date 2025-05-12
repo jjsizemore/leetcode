@@ -1,5 +1,6 @@
 from typing import List
 
+
 # region Dynamic Programming
 class Solution:
     def trap(self, height: List[int]) -> int:
@@ -28,6 +29,7 @@ class Solution:
 
 
 # endregion
+
 
 # region Two Pointers
 class Solution:

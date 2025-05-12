@@ -4,6 +4,8 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+
 class Solution:
     # Space O(logn)
     # Time O(n)

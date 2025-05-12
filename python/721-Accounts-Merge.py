@@ -1,8 +1,9 @@
-from collections import defaultdict
 import collections
+from collections import defaultdict
 from typing import List
 
 # region Disjoint Set Union (DSU)
+
 
 # Sets up accounts as groups of nodes represented by indices in the parents array
 # Manages relationships between the groups by manipulating the parent values

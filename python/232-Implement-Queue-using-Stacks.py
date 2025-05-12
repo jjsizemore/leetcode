@@ -1,4 +1,4 @@
-#region EfficientPushAmortizedPop
+# region EfficientPushAmortizedPop
 class MyQueue:
 
     def __init__(self):
@@ -12,7 +12,6 @@ class MyQueue:
         if not self.main:
             self.front = x
         self.main.append(x)
-
 
     # Time O(1) Amortized
     # Space O(1)
@@ -45,10 +44,10 @@ class MyQueue:
 # param_3 = obj.peek()
 # param_4 = obj.empty()
 
-#endregion
+# endregion
 
 
-#region LessEfficientPush
+# region LessEfficientPush
 class MyQueue:
 
     def __init__(self):
@@ -88,4 +87,4 @@ class MyQueue:
 # param_3 = obj.peek()
 # param_4 = obj.empty()
 
-#endregion
+# endregion

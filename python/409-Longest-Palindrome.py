@@ -16,5 +16,5 @@ class Solution:
                 retVal += count
             else:
                 hasOdd = 1
-                retVal += (count - 1)
+                retVal += count - 1
         return retVal + hasOdd

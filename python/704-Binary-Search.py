@@ -4,8 +4,8 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         i, j = 0, len(nums) - 1
 
-        while (i <= j):
-            mid = math.floor(j + (i - j)/ 2)
+        while i <= j:
+            mid = math.floor(j + (i - j) / 2)
             if nums[mid] == target:
                 return mid
             if nums[mid] < target:
@@ -14,5 +14,3 @@ class Solution:
                 j = mid - 1
 
         return -1
-
-

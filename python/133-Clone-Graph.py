@@ -6,6 +6,8 @@ class Node:
     def __init__(self, val=0, neighbors=None):
         self.val = val
         self.neighbors = neighbors if neighbors is not None else []
+
+
 # region Iterative BFS
 # Time O(V + E)
 # Space O(V)
@@ -30,6 +32,8 @@ class Solution:
                 newCur.neighbors.append(myMap[neighbor.val])
 
         return myMap[node.val]
+
+
 # endregion
 
 # region Iterative DFS
@@ -56,6 +60,8 @@ class Solution:
                 newCur.neighbors.append(myMap[neighbor.val])
 
         return myMap[node.val]
+
+
 # endregion
 
 # region Recursive DFS
@@ -79,4 +85,6 @@ class Solution:
                 myMap[n.val] = self.clone(n, myMap)
             myMap[node.val].neighbors.append(myMap[n.val])
         return myMap[node.val]
+
+
 # endregion

@@ -15,13 +15,13 @@ class Solution:
             if token not in ops:
                 q.append(int(token))
             else:
-                if token is "+":
+                if token == "+":
                     q.append(q.pop() + q.pop())
-                elif token is "-":
+                elif token == "-":
                     second = q.pop()
                     first = q.pop()
                     q.append(first - second)
-                elif token is "/":
+                elif token == "/":
                     second = q.pop()
                     first = q.pop()
                     q.append(int(first / second))
@@ -29,5 +29,6 @@ class Solution:
                     q.append(q.pop() * q.pop())
             print(q[-1])
         return q.pop()
+
 
 # endregion

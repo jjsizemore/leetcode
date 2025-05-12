@@ -20,7 +20,9 @@ class Solution:
         self.traverse(root, retVal, 0)
         return retVal
 
-    def traverse(self, root: Optional[TreeNode], retVal: List[List[int]], level: int) -> None:
+    def traverse(
+        self, root: Optional[TreeNode], retVal: List[List[int]], level: int
+    ) -> None:
         if root is None:
             return
         while len(retVal) <= level:

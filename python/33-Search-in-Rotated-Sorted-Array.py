@@ -1,5 +1,6 @@
 from typing import List
 
+
 # region 2 Pass Binary Search
 # Time O(logn)
 # Space O(1)

@@ -5,10 +5,13 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
-  # Space O(1)
-  # Time O(h)
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+    # Space O(1)
+    # Time O(h)
+    def lowestCommonAncestor(
+        self, root: "TreeNode", p: "TreeNode", q: "TreeNode"
+    ) -> "TreeNode":
         while True:
             # If root is bigger than both, LCA is somewhere in left subtree
             if root.val > p.val and root.val > q.val:

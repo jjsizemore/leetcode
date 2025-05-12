@@ -10,23 +10,25 @@ class Solution:
         carry = 0
 
         for i in range(maxLen - 1, -1, -1):
-            if a[i] == '1':
+            if a[i] == "1":
                 carry += 1
-            if b[i] == '1':
+            if b[i] == "1":
                 carry += 1
 
             if carry % 2 == 1:
-                digits.append('1')
+                digits.append("1")
             else:
-                digits.append('0')
+                digits.append("0")
 
             carry //= 2
 
         if carry == 1:
-            digits.append('1')
+            digits.append("1")
         digits.reverse()
 
-        return ''.join(digits)
+        return "".join(digits)
+
+
 # endregion
 
 # region Bit Manipulation
@@ -42,4 +44,6 @@ class Solution:
             x, y = answer, carry
 
         return bin(x)[2:]
+
+
 # endregion

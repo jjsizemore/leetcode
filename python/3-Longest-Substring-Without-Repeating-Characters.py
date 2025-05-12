@@ -17,4 +17,6 @@ class Solution:
             charToIdx[curChar] = idx
 
         return longest
+
+
 # endregion

@@ -8,6 +8,7 @@ class TreeNode(object):
 
 import collections
 
+
 # region Level Order Traversal -- serialize like LeetCode
 class Codec:
     # Do level order traversal by keeping track of children in a queue

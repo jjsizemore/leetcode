@@ -1,5 +1,6 @@
 import math
 from typing import List
+
 # region Bottom Up DP (Tabulation)
 # Time O(len(coins) * amount)
 # Space O(amount)
@@ -13,9 +14,10 @@ class Solution:
 
         for coin in coins:
             for i in range(coin, amount + 1):
-                minCoinCounts[i] = min(
-                    minCoinCounts[i], minCoinCounts[i - coin] + 1)
+                minCoinCounts[i] = min(minCoinCounts[i], minCoinCounts[i - coin] + 1)
         return -1 if minCoinCounts[amount] == math.inf else minCoinCounts[amount]
+
+
 # endregion
 
 # region Top Down DP (Memoization)
@@ -33,10 +35,11 @@ class Solution:
             if amtLeft in cache:
                 return cache[amtLeft]
 
-            cache[amtLeft] = min(
-                helper(amtLeft - coin, cache) + 1 for coin in coins)
+            cache[amtLeft] = min(helper(amtLeft - coin, cache) + 1 for coin in coins)
             return cache[amtLeft]
 
         retVal = helper(amount, {})
         return -1 if retVal == math.inf else retVal
+
+
 # endregion

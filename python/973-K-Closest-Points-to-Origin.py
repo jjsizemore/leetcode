@@ -18,6 +18,8 @@ class Solution:
                 heapq.heappush(heap, (dist, x, y))
 
         return [(x, y) for (dist, x, y) in heap]
+
+
 # endregion
 
 
@@ -26,7 +28,8 @@ class Solution:
 # Space O(n)
 class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
-        points.sort(key=lambda point: point[0]**2 + point[1]**2)
+        points.sort(key=lambda point: point[0] ** 2 + point[1] ** 2)
         return points[:k]
+
 
 # endregion

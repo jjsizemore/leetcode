@@ -1,6 +1,6 @@
 class Solution:
-  # Time O(n)
-  # Space O(1)
+    # Time O(n)
+    # Space O(1)
     def maxProfit(self, prices: List[int]) -> int:
         maxProfit = 0
         lowestPrice = prices[0]

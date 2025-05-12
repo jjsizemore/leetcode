@@ -8,16 +8,19 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 # region Recursive Solution
 
 
 class Solution:
-  # Space O(n)
-  # Time O(n)
+    # Space O(n)
+    # Time O(n)
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         return self.helper(head, None)
 
-    def helper(self, head: Optional[ListNode], prev: Optional[ListNode]) -> Optional[ListNode]:
+    def helper(
+        self, head: Optional[ListNode], prev: Optional[ListNode]
+    ) -> Optional[ListNode]:
         if not head:
             return prev
         else:
@@ -25,14 +28,15 @@ class Solution:
             head.next = prev
             return self.helper(nextHead, head)
 
+
 # endregion
 
 # region Iterative Solution
 
 
 class Solution:
-  # Space O(1)
-  # Time O(n)
+    # Space O(1)
+    # Time O(n)
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         cur = None
 
@@ -43,5 +47,6 @@ class Solution:
             head = ptr
 
         return cur
+
 
 # endregion

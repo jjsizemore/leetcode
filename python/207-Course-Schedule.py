@@ -1,12 +1,15 @@
 # region BFS with Kahn's Algorithm for Topological Sorting
 from collections import deque
+
 # Space O(V + E)
 # Time O(V + E)
 
 
 class Solution:
 
-    def adjList(self, numCourses: int, prerequisites: List[List[int]]) -> List[List[int]]:
+    def adjList(
+        self, numCourses: int, prerequisites: List[List[int]]
+    ) -> List[List[int]]:
         preReqsToCourses = [[] for _ in range(numCourses)]
 
         for course, prereq in prerequisites:
@@ -20,7 +23,7 @@ class Solution:
         inDegrees = [0] * numCourses
 
         # List of numbers of incoming edges for each node
-        for course, prereq in prerequisites:
+        for course, _prereq in prerequisites:
             inDegrees[course] += 1
 
         # Queue with all vertices with no incoming edge
@@ -53,6 +56,8 @@ class Solution:
 
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         return True if self.topoBFS(numCourses, prerequisites) else False
+
+
 # endregion
 
 # region DFS with processing stack -- stack stores all descendants being processed
@@ -62,7 +67,9 @@ class Solution:
 
 class Solution:
 
-    def adjList(self, numCourses: int, prerequisites: List[List[int]]) -> List[List[int]]:
+    def adjList(
+        self, numCourses: int, prerequisites: List[List[int]]
+    ) -> List[List[int]]:
         preReqsToCourses = [[] for _ in range(numCourses)]
 
         for course, prereq in prerequisites:
@@ -96,6 +103,8 @@ class Solution:
             if isCircular(course, []):
                 return False
         return True
+
+
 # endregion
 
 
@@ -104,7 +113,9 @@ class Solution:
 # Space O(V + E) Required for the adjacency list
 class Solution:
 
-    def adjList(self, numCourses: int, prerequisites: List[List[int]]) -> List[List[int]]:
+    def adjList(
+        self, numCourses: int, prerequisites: List[List[int]]
+    ) -> List[List[int]]:
         preReqsToCourses = [[] for _ in range(numCourses)]
 
         for course, prereq in prerequisites:
@@ -143,4 +154,6 @@ class Solution:
             if isCircular(course):
                 return False
         return True
+
+
 # endregion
