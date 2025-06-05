@@ -1,4 +1,25 @@
 #region Breadth First Search
+/// <summary>
+/// 102. Binary Tree Level Order Traversal
+/// https://leetcode.com/problems/binary-tree-level-order-traversal/
+///
+/// Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+///
+/// Example 1:
+/// Input: root = [3,9,20,null,null,15,7]
+/// Output: [[3],[9,20],[15,7]]
+///
+/// Example 2:
+/// Input: root = [1]
+/// Output: [[1]]
+///
+/// </summary>
+///
+/// Time: O(n)
+/// Space: O(n)
+///
+/// We can use a queue to traverse the tree level by level.
+///
 public class Solution {
     public List<List<int>> LevelOrder(TreeNode root) {
         var retVal = new List<List<int>>();
@@ -30,6 +51,27 @@ public class Solution {
 #endregion
 
 #region Depth First Search
+/// <summary>
+/// 102. Binary Tree Level Order Traversal
+/// https://leetcode.com/problems/binary-tree-level-order-traversal/
+///
+/// Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+///
+/// Example 1:
+/// Input: root = [3,9,20,null,null,15,7]
+/// Output: [[3],[9,20],[15,7]]
+///
+/// Example 2:
+/// Input: root = [1]
+/// Output: [[1]]
+///
+/// </summary>
+///
+/// Time: O(n)
+/// Space: O(n)
+///
+/// We can use a recursive helper function to traverse the tree level by level.
+///
 public class Solution {
     public List<List<int>> res = new List<List<int>>();
 
