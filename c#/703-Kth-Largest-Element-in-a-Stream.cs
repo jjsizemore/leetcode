@@ -24,25 +24,16 @@
 /// kthLargest.add(9);   // return 8
 /// kthLargest.add(4);   // return 8
 ///
-///
-///
-///
-///
 /// MinHeap is a good data structure for this problem because we can keep track of the kth largest element by removing all but k elements.
 /// The element at idx 0 will be the kth largest element.
 ///
 /// We can use a PriorityQueue to implement the MinHeap.
 ///
+/// </summary>
+///
 /// Time: O(m * log(k)) where m is the number of calls to add
 /// Space: O(k)
 ///
-///
-///
-///
-///
-///
-///
-/// </summary>
 public class KthLargest {
     // Can use a MinHeap
     // Remove all but k elems, and elem at idx 0 will be kth largest
