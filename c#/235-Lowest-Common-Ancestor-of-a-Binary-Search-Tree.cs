@@ -1,5 +1,46 @@
-// Time		O(N) -- in the case of a totally skewed tree where the LCA is second from leaf
-// Space	O(1)
+#region Iterative (2025 with top & bottom pointers)
+
+/// <summary>
+/// LC 235: Lowest Common Ancestor of a Binary Search Tree
+/// https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+/// Approach: Iterative
+/// Time: O(N) -- in the case of a totally skewed tree where the LCA is second from leaf
+/// Space: O(1)
+/// </summary>
+public class Solution {
+    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        // can use binary search tree structure to speed things up
+        // LCA if
+        //  one target in one sub and (one in other or self)
+        //  meaning (bot <= root && root <= top)
+
+        var top = p.val > q.val ? p : q;
+        var bot = top == p ? q : p;
+
+        while (root != null) {
+            if (top.val < root.val) {
+                root = root.left;
+            } else if (bot.val > root.val) {
+                root = root.right;
+            } else {
+                return root;
+            }
+        }
+
+        return null;
+    }
+}
+
+#endregion
+
+#region Iterative
+/// <summary>
+/// LC 235: Lowest Common Ancestor of a Binary Search Tree
+/// https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+/// Approach: Iterative
+/// Time: O(N) -- in the case of a totally skewed tree where the LCA is second from leaf
+/// Space: O(1)
+/// </summary>
 public class Solution
 {
     public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q)
@@ -24,6 +65,13 @@ public class Solution
         }
     }
 }
+
+#endregion
+
+#region Recursive
+
+#endregion
+
 
 //   Definition for a binary tree node.
 public class TreeNode
