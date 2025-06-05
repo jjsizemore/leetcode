@@ -24,6 +24,15 @@
 /// We then update the highest value seen so far to the current node's value and continue
 /// the DFS.
 /// </summary>
+/// Time: O(n)
+/// Space: O(n)
+///
+/// We can use a recursive helper function to keep track of the highest value seen so far.
+/// If the current node's value is greater than or equal to the highest value seen so far,
+/// then it is a good node.
+/// We then update the highest value seen so far to the current node's value and continue
+/// the DFS.
+///
 public class Solution {
     public int count = 0;
 
